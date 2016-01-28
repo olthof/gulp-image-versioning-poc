@@ -16,12 +16,25 @@ module.exports = function() {
 
     /*  Sprite main
         ========================================================================== */
-
-        // Generate our spritesheet 
+ 
         var spriteData = gulp.src('../../images/sprites/sprite-main/*.png').pipe(spritesmith({
+            // The sprite's image file name
             imgName: 'sprite-main.png',
-            cssName: 'sprite-main.css'
-        }));
+
+            // The sprite's image location in the CSS
+            imgPath: '//common.xxxxx.local/images/sprite-main.png',
+
+            // The sprite's css file name
+            cssName: 'sprite-main.css',
+
+            cssOpts: {
+                    // Prefixes the CSS selectors with ".sprite-"
+                    cssSelector: function (sprite) {
+                        return '.sprite-' + sprite.name;
+                    }
+                }
+            })
+        );
 
         // Pipe image stream through image optimizer and onto disk 
         var imgStream = spriteData.img
@@ -34,12 +47,18 @@ module.exports = function() {
 
     /*  Sprite communication
         ========================================================================== */
-
-        // Generate our spritesheet 
+ 
         var spriteData = gulp.src('../../images/sprites/sprite-communication/*.png').pipe(spritesmith({
             imgName: 'sprite-communication.png',
-            cssName: 'sprite-communication.css'
-        }));
+            imgPath: '//common.xxxxx.local/images/sprite-communication.png',
+            cssName: 'sprite-communication.css',
+            cssOpts: {
+                    cssSelector: function (sprite) {
+                        return '.sprite-' + sprite.name;
+                    }
+                }
+            })
+        );
 
         // Pipe image stream through image optimizer and onto disk 
         var imgStream = spriteData.img
@@ -52,12 +71,18 @@ module.exports = function() {
 
     /*  Sprite social
         ========================================================================== */
-
-        // Generate our spritesheet 
+ 
         var spriteData = gulp.src('../../images/sprites/sprite-social/*.png').pipe(spritesmith({
             imgName: 'sprite-social.png',
-            cssName: 'sprite-social.css'
-        }));
+            imgPath: '//common.xxxxx.local/images/sprite-social.png',
+            cssName: 'sprite-social.css',
+            cssOpts: {
+                    cssSelector: function (sprite) {
+                        return '.sprite-' + sprite.name;
+                    }
+                }
+            })
+        );
 
         // Pipe image stream through image optimizer and onto disk 
         var imgStream = spriteData.img
