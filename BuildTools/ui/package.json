@@ -13,6 +13,12 @@
     "gulp.spritesmith": "^6.0.1",
     "merge-stream": "^1.0.0",
     "run-sequence": "latest",
-    "vinyl-buffer": "^1.0.0"
-  }
+    "vinyl-buffer": "^1.0.0",
+    "snyk": "^1.319.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
